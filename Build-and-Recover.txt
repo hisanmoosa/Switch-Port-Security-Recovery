@@ -1,0 +1,23 @@
+REFERENCE commands; not a raw session transcript.
+enable
+configure terminal
+interface fa0/1
+switchport mode access
+switchport port-security
+switchport port-security maximum 1
+switchport port-security mac-address sticky
+switchport port-security violation shutdown
+end
+
+Keep STAFF-PC connected while learning its MAC. From STAFF-PC, ping 192.168.60.12.
+On switch: show port-security interface fa0/1
+Replace STAFF-PC on Fa0/1 with UNKNOWN-PC, then ping 192.168.60.12 from UNKNOWN-PC.
+Check: show port-security interface fa0/1
+Disconnect UNKNOWN-PC and reconnect STAFF-PC BEFORE resetting the interface:
+configure terminal
+interface fa0/1
+shutdown
+no shutdown
+end
+Repeat STAFF-PC ping, then verify port status and running configuration.
+Save: copy running-config startup-config; press Enter at the filename prompt.

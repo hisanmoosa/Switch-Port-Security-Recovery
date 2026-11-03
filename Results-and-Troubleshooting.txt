@@ -1,0 +1,9 @@
+Baseline STAFF-PC -> TEST-PC ping: success reported.
+After enabling port security and learning STAFF-PC: successful ping reported.
+UNKNOWN-PC -> TEST-PC after connecting to Fa0/1: Request timed out reported; full packet statistics not supplied.
+The port-security snapshot confirmed Secure-shutdown and one violation.
+After disconnecting UNKNOWN-PC, reconnecting STAFF-PC and resetting Fa0/1: successful ping reported. Final snapshot confirmed Secure-up; counter showed 0 after the reset.
+Final running-config confirmed sticky MAC 000A.F3E1.2128 remained authorised.
+
+The Last Source Address field still showed the earlier violating MAC in the post-recovery snapshot. It was not treated as the configured allowed address. The running-config sticky entry established the permitted MAC.
+No full ping packet counts or timings were supplied in this project; none are invented.
